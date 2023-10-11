@@ -1,10 +1,7 @@
-using Microsoft.Data.Sqlite;
 using Npgsql;
-using QuizAPI.Configurations;
-using QuizAPI.Database.Interfaces;
-using QuizAPI.DataMapper;
+using tunetribe.Api.Database.Interfaces;
 
-namespace QuizAPI.Database.Postgres;
+namespace tunetribe.Api.Database.Postgres;
 
 public class PostgresDriver : IDatabaseDriver
 {

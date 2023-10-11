@@ -1,7 +1,6 @@
-﻿using QuizAPI.Arguments;
-using QuizAPI.Endpoint;
+﻿using tunetribe.Api.Endpoint;
 
-namespace QuizAPI;
+namespace tunetribe.Api;
 
 public static class Router
 {
@@ -10,7 +9,6 @@ public static class Router
         SetDefaultRoute(app);
         SetUserRoute(app);
         SetAuthenticationRoute(app);
-        SetQuestionRoute(app);
     }
 
     private static void SetDefaultRoute(WebApplication app) => app.MapGet(
@@ -25,7 +23,4 @@ public static class Router
         "/auth/{username}/{password}", 
         (AuthenticationEndpoint endpoint, string username, string password) => endpoint.GetAsync(new(username, password)));
 
-    private static void SetQuestionRoute(WebApplication app) => app.MapGet(
-        "/question/{identifier:int}", 
-        (QuestionEndpoint endpoint, int identifier) => endpoint.GetAsync(new (identifier)));
 }

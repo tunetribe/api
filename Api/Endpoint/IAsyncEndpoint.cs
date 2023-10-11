@@ -1,4 +1,4 @@
-namespace QuizAPI.Endpoint;
+namespace tunetribe.Api.Endpoint;
 
 public interface 
 IAsyncEndpoint<TArguments, TResult>

@@ -1,9 +1,8 @@
-﻿using System.Text;
-using QuizAPI.Arguments;
-using QuizAPI.Data;
-using QuizAPI.Queries;
+﻿using tunetribe.Api.Arguments;
+using tunetribe.Api.Queries;
+using tunetribe.Core.Model;
 
-namespace QuizAPI.Endpoint;
+namespace tunetribe.Api.Endpoint;
 
 public class UserEndpoint : IAsyncEndpoint<NoArguments, User[]>
 {

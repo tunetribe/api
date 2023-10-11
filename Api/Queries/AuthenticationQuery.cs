@@ -1,11 +1,8 @@
-using Microsoft.Data.Sqlite;
 using Npgsql;
-using QuizAPI.Arguments;
-using QuizAPI.Configurations;
-using QuizAPI.Database.Interfaces;
-using QuizAPI.DataMapper;
+using tunetribe.Api.Arguments;
+using tunetribe.Api.Database.Interfaces;
 
-namespace QuizAPI.Queries;
+namespace tunetribe.Api.Queries;
 
 public class AuthenticationQuery : IQuery<AuthenticationArguments, bool>
 {

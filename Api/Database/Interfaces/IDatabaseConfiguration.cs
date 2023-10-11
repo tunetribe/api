@@ -1,4 +1,4 @@
-namespace QuizAPI.Configurations;
+namespace tunetribe.Api.Database.Interfaces;
 
 public interface IDatabaseConfiguration
 {

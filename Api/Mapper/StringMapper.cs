@@ -1,6 +1,7 @@
 using System.Data;
+using tunetribe.Api.Database.Interfaces;
 
-namespace QuizAPI.DataMapper;
+namespace tunetribe.Api.Mapper;
 
 public class StringMapper : IDataMapper<string>
 {

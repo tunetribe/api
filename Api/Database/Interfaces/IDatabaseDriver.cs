@@ -1,7 +1,6 @@
 ﻿using Npgsql;
-using QuizAPI.DataMapper;
 
-namespace QuizAPI.Database.Interfaces;
+namespace tunetribe.Api.Database.Interfaces;
 
 public interface IDatabaseDriver
 {

@@ -1,7 +1,8 @@
 ﻿using System.Data;
-using QuizAPI.Data;
+using tunetribe.Api.Database.Interfaces;
+using tunetribe.Core.Model;
 
-namespace QuizAPI.DataMapper;
+namespace tunetribe.Api.Mapper;
 
 public class UserMapper : IDataMapper<User>
 {

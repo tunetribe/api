@@ -1,13 +1,13 @@
 ﻿using Npgsql;
-using QuizAPI.Configurations;
-using QuizAPI.DataMapper;
-using QuizAPI.Data;
-using QuizAPI.Database.Interfaces;
-using QuizAPI.Database.Postgres;
-using QuizAPI.Endpoint;
-using QuizAPI.Queries;
+using tunetribe.Api.Configurations;
+using tunetribe.Api.Database.Interfaces;
+using tunetribe.Api.Database.Postgres;
+using tunetribe.Api.Endpoint;
+using tunetribe.Api.Mapper;
+using tunetribe.Api.Queries;
+using tunetribe.Core.Model;
 
-namespace QuizAPI;
+namespace tunetribe.Api;
 
 public static class Services
 {
@@ -33,8 +33,8 @@ public static class Services
         builder.Services.AddSingleton<IDatabaseConfiguration>(configuration);
 
         var dataSourceBuilder = new NpgsqlDataSourceBuilder(configuration.ConnectionString);
-        dataSourceBuilder.MapComposite<Choice>("choice");
-        dataSourceBuilder.MapComposite<Question>("question");
+        // dataSourceBuilder.MapComposite<Choice>("choice");
+        // dataSourceBuilder.MapComposite<Question>("question");
         builder.Services.AddSingleton<NpgsqlDataSource>(dataSourceBuilder.Build());
     }
 
@@ -43,20 +43,17 @@ public static class Services
         builder.Services.AddSingleton<IDataMapper<User>, UserMapper>();
         builder.Services.AddSingleton<IDataMapper<bool>, BooleanMapper>();
         builder.Services.AddSingleton<IDataMapper<string>, StringMapper>();
-        builder.Services.AddSingleton<IDataMapper<Question>, QuestionMapper>();
     }
     
     private static void InitQueries(WebApplicationBuilder builder)
     {
         builder.Services.AddSingleton<GetAllUsersQuery>();
         builder.Services.AddSingleton<AuthenticationQuery>();
-        builder.Services.AddSingleton<QuestionQuery>();
     }
 
     private static void InitEndpoints(WebApplicationBuilder builder)
     {
         builder.Services.AddSingleton<UserEndpoint>();
         builder.Services.AddSingleton<AuthenticationEndpoint>();
-        builder.Services.AddSingleton<QuestionEndpoint>();
     }
 }

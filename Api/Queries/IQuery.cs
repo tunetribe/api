@@ -1,4 +1,4 @@
-namespace QuizAPI.Queries;
+namespace tunetribe.Api.Queries;
 
 public interface IQuery<TResult>
 {

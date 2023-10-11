@@ -1,7 +1,8 @@
 using System.Data;
-using QuizAPI.Extensions;
+using tunetribe.Api.Database.Interfaces;
+using tunetribe.Api.Extensions;
 
-namespace QuizAPI.DataMapper;
+namespace tunetribe.Api.Mapper;
 
 public class BooleanMapper : IDataMapper<bool>
 {

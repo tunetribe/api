@@ -1,7 +1,7 @@
-using QuizAPI.Arguments;
-using QuizAPI.Queries;
+using tunetribe.Api.Arguments;
+using tunetribe.Api.Queries;
 
-namespace QuizAPI.Endpoint;
+namespace tunetribe.Api.Endpoint;
 
 public class AuthenticationEndpoint: IAsyncEndpoint<AuthenticationArguments, bool>
 {

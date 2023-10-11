@@ -1,10 +1,8 @@
-using QuizAPI.Arguments;
-using QuizAPI.Configurations;
-using QuizAPI.Data;
-using QuizAPI.Database.Interfaces;
-using QuizAPI.DataMapper;
+using tunetribe.Api.Arguments;
+using tunetribe.Api.Database.Interfaces;
+using tunetribe.Core.Model;
 
-namespace QuizAPI.Queries;
+namespace tunetribe.Api.Queries;
 
 public class GetAllUsersQuery : IQuery<NoArguments, User[]>
 {

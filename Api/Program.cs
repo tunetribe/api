@@ -1,5 +1,4 @@
-using QuizAPI;
-using QuizAPI.Configurations;
+using tunetribe.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 Services.InitServices(builder);

@@ -1,4 +1,4 @@
-﻿namespace QuizAPI.Extensions;
+﻿namespace tunetribe.Api.Extensions;
 
 public static class TaskExtensions
 {
