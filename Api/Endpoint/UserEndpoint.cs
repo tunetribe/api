@@ -6,12 +6,18 @@ namespace tunetribe.Api.Endpoint;
 
 public class UserEndpoint : IAsyncEndpoint<NoArguments, User[]>
 {
-    private readonly GetAllUsersQuery _query;
+    private readonly GetAllUsersQuery _getAllUsersQuery;
+    private readonly AddUserQuery _addUserQuery;
     
-    public UserEndpoint(GetAllUsersQuery query)
+    public UserEndpoint(
+        GetAllUsersQuery getAllUsersQuery,
+        AddUserQuery addUserQuery)
     {
-        _query = query;
+        _getAllUsersQuery = getAllUsersQuery;
+        _addUserQuery = addUserQuery;
     }
 
-    public Task<User[]> GetAsync(NoArguments arguments) => _query.Execute(arguments);
+    public Task<User[]> GetAsync(NoArguments arguments) => _getAllUsersQuery.Execute(arguments);
+
+    public Task<bool> PostAsync(AddUserArguments arguments) => _addUserQuery.Execute(arguments);
 }

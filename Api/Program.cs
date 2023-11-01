@@ -1,9 +1,8 @@
 using tunetribe.Api;
 
-var builder = WebApplication.CreateBuilder(args);
-Services.InitServices(builder);
+await WebApplication.CreateBuilder(args)
+    .RegisterServices()
+    .Build()
+    .MapRoutes()
+    .RunAsync();
 
-var app = builder.Build();
-Router.InitRoutes(app);
-
-await app.RunAsync();

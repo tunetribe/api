@@ -11,12 +11,14 @@ namespace tunetribe.Api;
 
 public static class Services
 {
-    public static void InitServices(WebApplicationBuilder builder)
+    public static WebApplicationBuilder RegisterServices(this WebApplicationBuilder builder)
     {
         InitDatabase(builder);
         InitDataMapper(builder);
         InitQueries(builder);
         InitEndpoints(builder);
+
+        return builder;
     }
 
     private static void InitDatabase(WebApplicationBuilder builder)
@@ -31,23 +33,23 @@ public static class Services
         builder.Configuration.AddJsonFile(path).Build();
         builder.Configuration.Bind(configuration);
         builder.Services.AddSingleton<IDatabaseConfiguration>(configuration);
-
         var dataSourceBuilder = new NpgsqlDataSourceBuilder(configuration.ConnectionString);
-        // dataSourceBuilder.MapComposite<Choice>("choice");
-        // dataSourceBuilder.MapComposite<Question>("question");
+        dataSourceBuilder.MapComposite<User>("user");
         builder.Services.AddSingleton<NpgsqlDataSource>(dataSourceBuilder.Build());
     }
-
+    
     private static void InitDataMapper(WebApplicationBuilder builder)
     {
         builder.Services.AddSingleton<IDataMapper<User>, UserMapper>();
         builder.Services.AddSingleton<IDataMapper<bool>, BooleanMapper>();
         builder.Services.AddSingleton<IDataMapper<string>, StringMapper>();
+        builder.Services.AddSingleton<StatementMapper>();
     }
     
     private static void InitQueries(WebApplicationBuilder builder)
     {
         builder.Services.AddSingleton<GetAllUsersQuery>();
+        builder.Services.AddSingleton<AddUserQuery>();
         builder.Services.AddSingleton<AuthenticationQuery>();
     }
 

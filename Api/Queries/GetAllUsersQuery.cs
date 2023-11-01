@@ -13,7 +13,6 @@ public class GetAllUsersQuery : IQuery<NoArguments, User[]>
     
     public GetAllUsersQuery(IDatabaseDriver driver, IDatabaseConfiguration configuration, IDataMapper<User> mapper)
     {
-        Console.WriteLine();
         _driver = driver;
         _configuration = configuration;
         _mapper = mapper;

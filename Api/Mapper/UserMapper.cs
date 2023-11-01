@@ -9,6 +9,6 @@ public class UserMapper : IDataMapper<User>
     public User Map(IDataRecord data) => new User(
         Identifier: data.GetInt32(0),
         Username: data.GetString(1), 
-        Password: data.GetString(2)
+        PasswordHash: data.GetString(2)
     );
 }
